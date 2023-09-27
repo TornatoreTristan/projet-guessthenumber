@@ -17,7 +17,7 @@ class Game {
   init() {
     const randomNumber = Math.floor(Math.random() * 501);
     this.guessNumber = randomNumber;
-    console.log(this.guessNumber);
+    console.log("Le nombre à trouvé est : ", this.guessNumber);
   }
 
   counterAttempt() {
@@ -55,10 +55,10 @@ class Game {
     } essais, c'était bien ${this.guessNumber}`;
   }
 
-  helper(pixel) {
+  helper(number) {
+    if (isNaN(number)) return;
     const rect = helper.getBoundingClientRect();
-    const pourcentage = Math.floor((pixel / rect.width) * 100);
-    console.log(pourcentage);
+    const pourcentage = Math.floor((number / Math.floor(rect.width)) * 100);
 
     const marker = document.createElement("div");
     marker.style.position = "absolute";
@@ -68,7 +68,10 @@ class Game {
     marker.style.top = `10px`;
     // marker.style.left = `${position - 25}px`;
     marker.style.left = `calc(${pourcentage}% - 25px)`;
-    marker.innerText = "❌";
+
+    Number(number) === this.guessNumber
+      ? (marker.innerText = "🟩")
+      : (marker.innerText = "❌");
 
     helper.appendChild(marker);
   }
