@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess The Number</title>
+  </head>
+  <body>
+    <main class="flex flex-col items-center justify-center py-16 px-8">
+      <header class="text-center">
+        <h1 class="text-5xl text-slate-800 mb-8">Guess The Number</h1>
+        <h2 class="text-2xl text-slate-800 mb-8">The Ultimate Game</h2>
+        <p class="max-w-sm">
+          L'objectif de ce jeu est de deviné le nombre choisi par l'ordinateur.
+          <span class="font-bold block text-rose-400">
+            Ce nombre est compris entre 0 et 500.
+          </span>
+          À chaque réponse, l'ordinateur te dira si le nombre est plus petit ou
+          plus grand.
+        </p>
+      </header>
+      <div class="py-24" id="ui-start">
+        <button
+          class="bg-slate-700 text-white py-2 px-4 rounded-lg"
+          id="btnStart"
+        >
+          Start
+        </button>
+      </div>
+      <div class="py-24 hidden" id="ui">
+        <h3 class="text-lg font-bold mb-8">
+          J'ai généré un nombre entre 0 et 500, essaie de le deviner !
+        </h3>
+        <div class="flex justify-end">
+          <p class="text-right mb-4 border py-2 px-4 rounded-lg inline-block">
+            Score : <span id="score">0</span>
+          </p>
+        </div>
+        <div>
+          <form class="" id="guess-form">
+            <label class="font-bold" for="guess">Votre chiffre</label>
+            <div class="flex gap-3 mt-3">
+              <input
+                class="border rounded-lg py-4 px-4 w-full"
+                id="guess"
+                type="text"
+                name="user-guess"
+                placeholder="exemple : 23"
+              />
+              <button
+                type="submit"
+                class="bg-slate-700 text-white py-2 px-4 rounded-lg"
+              >
+                Envoyer
+              </button>
+            </div>
+          </form>
+          <div
+            id="response"
+            class="my-4 p-8 text-center hidden rounded-lg"
+          ></div>
+          <div>
+            <div
+              id="helper"
+              class="w-full border rounded-lg h-12 my-4 relative"
+            >
+              <div class="absolute left-0 top-full">0</div>
+              <div class="absolute right-0 top-full">500</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="text-center">
+        <p class="flex gap-1 text-slate-400">
+          Développé par Tristan TORNATORE -
+          <a
+            class="text-blue-500 hover:text-blue-950 flex gap-2"
+            href="https://github.com/"
+          >
+            <img
+              src="./public/github-mark.svg"
+              width="25px"
+              alt="Logo Github"
+            />
+            Github</a
+          >
+        </p>
+      </footer>
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
